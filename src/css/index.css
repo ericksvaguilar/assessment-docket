@@ -1,0 +1,210 @@
+/* Variables */
+:root {
+  --black100: #2e2d2c;
+  --black02: #f3f3f3;
+  --black-40: #ababab;
+  --red: #e65562;
+  --blue: #3570b2;
+  --cold-grey-10: #ebf0f5;
+  --cold-grey-40: #c4c8cc;
+  --violet: #403d70;
+}
+
+/* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+
+  background: var(--black02);
+  color: var(--black100);
+}
+
+/* Mobile Styles */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.header {
+  height: 130px;
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 57px;
+  height: 40px;
+}
+
+/* Main */
+.main {
+  position: relative;
+  bottom: 20px;
+}
+
+/* Form Section */
+.register {
+  box-shadow: 0px 1px 2px #2e2d2c66;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.register h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.register p {
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+}
+
+.form h3 {
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.input-wrapper label {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.375rem;
+}
+
+.input-wrapper input {
+  width: 100%;
+  border: 1px solid #ababab;
+  border-radius: 2px;
+  padding: 0.625rem;
+  margin-bottom: 0.25rem;
+}
+
+.input-wrapper input[type='submit'] {
+  background-color: var(--blue);
+  color: #fff;
+  padding: 0.563rem 1.25rem;
+  width: fit-content;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.input-wrapper small {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.required-label {
+  color: var(--red);
+}
+/* Form Section End*/
+
+/* Record Section */
+.record {
+  width: 100%;
+  background-color: var(--cold-grey-10);
+  border: 1px solid #c4c8cc;
+  border-radius: 4px;
+  border-top: 10px solid var(--cold-grey-40);
+  padding: 2.188rem 1.25rem 1.875rem;
+  font-size: 0.875rem;
+}
+
+.record h2 {
+  color: var(--violet);
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.125rem;
+}
+
+.output ul {
+  list-style: none;
+}
+
+.output li {
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+
+.null {
+  color: var(--black-40);
+}
+
+.record h3 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+/* Record Section End */
+
+/* Footer */
+.footer {
+  padding: 1.375rem 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #fff;
+  background: transparent linear-gradient(153deg, #5a5789 0%, #2d2c45 100%) 0%
+    0% no-repeat padding-box;
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 48rem) {
+  .container {
+    width: 80%;
+  }
+
+  .header {
+    height: 200px;
+  }
+
+  .logo {
+    width: 85px;
+    height: 60px;
+  }
+
+  .register {
+    margin: 0;
+  }
+
+  .main {
+    display: flex;
+    min-height: 586px;
+  }
+
+  .main > * {
+    flex: 1;
+  }
+
+  .main > *:first-child {
+    margin-right: 1.875rem;
+  }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 67.5rem) {
+  .conteiner {
+    width: 56rem;
+  }
+
+  .phone-wrapper {
+    display: flex;
+  }
+
+  .phone-wrapper > *:first-child {
+    margin-right: 1.875rem;
+  }
+}
