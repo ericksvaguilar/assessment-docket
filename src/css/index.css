@@ -37,6 +37,8 @@ body {
 .header {
   height: 130px;
   background-color: #121212;
+  background: transparent url('../img/arte-capa-saas-01.png') left top no-repeat
+    padding-box;
   display: flex;
   align-items: center;
 }
@@ -198,6 +200,10 @@ body {
 @media screen and (min-width: 67.5rem) {
   .conteiner {
     width: 56rem;
+  }
+
+  .header {
+    background-position: center top;
   }
 
   .phone-wrapper {
