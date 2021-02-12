@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Desafio Desenvolvedor Front-end Docket" />
+    <meta name="author" content="Erick Aguilar" />
+    <title>Docket Challenge</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <img class="logo" src="src/img/logo.svg" alt="Logo Docket" />
+      </div>
+    </header>
+
+    <main class="main container">
+      <section class="register">
+        <h2>Venha trabalhar na Docket</h2>
+        <p>
+          Preencha o formulário abaixo e venha trabalhar em uma das startups
+          mais desejadas do Brasil!
+        </p>
+
+        <form class="form">
+          <h3>Dados pessoais</h3>
+
+          <div class="input-wrapper">
+            <label for="name"
+              ><span class="required-label">* </span>Nome completo:</label
+            >
+            <input type="text" id="name" required />
+            <small>Mensagem de feedback</small>
+          </div>
+
+          <div class="input-wrapper">
+            <label for="email"
+              ><span class="required-label">* </span>E-mail:</label
+            >
+            <input type="email" id="email" required />
+            <small>Mensagem de feedback</small>
+          </div>
+
+          <div class="phone-wrapper">
+            <div class="input-wrapper">
+              <label for="phone"
+                ><span class="required-label">* </span>Telefone 1:</label
+              >
+              <input type="number" id="phone" required />
+              <small>Mensagem de feedback</small>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="phone-2"
+                ><span class="required-label">* </span>Telefone 2:</label
+              >
+              <input type="number" id="phone-2" />
+              <small>Mensagem de feedback</small>
+            </div>
+          </div>
+
+          <div class="input-wrapper">
+            <input type="submit" value="Enviar" />
+          </div>
+        </form>
+      </section>
+
+      <!-- Candidate Record Section -->
+      <section class="record container">
+        <h2>Ficha do Candidato</h2>
+
+        <div class="output">
+          <!-- <p>
+            Preencha o formulário e clique em "Enviar" após conferir atentamente.
+          </p> -->
+
+          <ul>
+            <li>
+              Nome completo: <br /><strong>João Henrique Silva e Souza</strong>
+            </li>
+            <li>
+              E-mail: <br /><strong>joaohenriquesilva@meuemail.com.br</strong>
+            </li>
+            <li>Telefone 1: <br /><strong>(11) 98756-0055</strong></li>
+            <li>
+              Telefone 2: <br /><strong class="null">Nao Informado</strong>
+            </li>
+          </ul>
+        </div>
+
+        <h3>Seus Projetos:</h3>
+        <!-- Carrousel -->
+      </section>
+    </main>
+
+    <footer class="footer">DOCKET © 2019</footer>
+  </body>
+</html>
