@@ -9,7 +9,7 @@ https://ericksvaguilar.github.io/assessment-docket/
 * LiveServer Extension
 
 ## Install
-1. Download repository
+1. Download or clone repository
 
 ## Usage
-1. Open index.html with LiverServer
+1. Open index.html with LiverServer in VSCode Editor
