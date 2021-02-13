@@ -7,7 +7,7 @@
 .header {
   height: 130px;
   background-color: #121212;
-  background: transparent url('/src/img/arte-capa-saas-01.png') left top no-repeat padding-box;
+  background: transparent url('src/img/arte-capa-saas-01.png') left top no-repeat padding-box;
   display: flex;
   align-items: center;
 }
