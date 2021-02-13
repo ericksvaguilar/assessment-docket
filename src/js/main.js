@@ -2,8 +2,8 @@ import {isValidForm} from './utilities.js';
 import {getURLs} from './apis.js';
 
 const formElement = document.querySelector('[data-js="form"]');
-const output = document.querySelector('[data-js="output"]');
 
+// Object destructuring to extract the form and input values
 const handleSubmit = ({
   target: form,
   target: {
@@ -14,30 +14,29 @@ const handleSubmit = ({
   },
 }) => {
   if (isValidForm(form)) {
-    name = `<strong>${name}</strong>`;
-    email = `<strong>${email}</strong>`;
-    phone = `<strong>${phone}</strong>`;
-    phone2 = phone2
-      ? `<strong>${phone2}</strong>`
-      : `<strong class='null'>Não Informado</strong>`;
-    generateHTML({
-      name,
-      email,
-      phone,
-      phone2,
-    });
+    generateHTML(name, email, phone, phone2);
+
     window.alert('Candidatura enviada com sucesso!');
     form.reset();
   }
 };
 
-const generateHTML = ({name, email, phone, phone2}) => {
+const generateHTML = (name, email, phone, phone2) => {
+  const output = document.querySelector('[data-js="output"]');
   const ul = document.createElement('ul');
 
+  // Formating values as html to hold results
+  name = `<strong>${name}</strong>`;
+  email = `<strong>${email}</strong>`;
+  phone = `<strong>${phone}</strong>`;
+  phone2 = phone2
+    ? `<strong>${phone2}</strong>`
+    : `<strong class='null'>Não Informado</strong>`;
+
   ul.appendChild(generateListItem(`Nome Completo: <br/>${name}`));
-  ul.appendChild(generateListItem(`E-mail: <br />${email}`));
-  ul.appendChild(generateListItem(`Telefone 1: <br />${phone}`));
-  ul.appendChild(generateListItem(`Telefone 2: <br />${phone2}`));
+  ul.appendChild(generateListItem(`E-mail: <br>${email}`));
+  ul.appendChild(generateListItem(`Telefone 1: <br>${phone}`));
+  ul.appendChild(generateListItem(`Telefone 2: <br>${phone2}`));
 
   output.innerHTML = ul.outerHTML;
 };
@@ -57,13 +56,14 @@ const insertUrlsIntoHTML = (urls) => {
   const items = urls.map((url) => {
     return `
         <div class='item'>
-          <img src='${url}' />
+          <img src='${url}' style="width: 200px">
         </div>
       `;
   });
 
-  carouselItems.innerHTML = items;
+  carouselItems.innerHTML = items.join('');
 };
+// API handle data end
 
 // Event Listeners
 formElement.addEventListener('submit', (e) => {

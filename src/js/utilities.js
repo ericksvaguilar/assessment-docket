@@ -1,8 +1,8 @@
 export const isValidForm = (form) => {
-  const nameError = document.querySelector('#name + small.error');
-  const emailError = document.querySelector('#email + small.error');
-  const phoneError = document.querySelector('#phone + small.error');
-  const phone2Error = document.querySelector('#phone2 + small.error');
+  const nameError = document.querySelector('#name + small.form__error-message');
+  const emailError = document.querySelector('#email + small.form__error-message');
+  const phoneError = document.querySelector('#phone + small.form__error-message');
+  const phone2Error = document.querySelector('#phone2 + small.form__error-message');
 
   let nameValidity = form.name.validity;
   let emailValidity = form.email.validity;
