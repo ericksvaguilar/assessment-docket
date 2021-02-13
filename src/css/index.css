@@ -1,40 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
-
-/* Variables */
-:root {
-  --black100: #2e2d2c;
-  --black02: #f3f3f3;
-  --black-40: #ababab;
-  --red-01: #e65562;
-  --blue-01: #3570b2;
-  --cold-grey-10: #ebf0f5;
-  --cold-grey-40: #c4c8cc;
-  --violet: #403d70;
-}
-
-/* Resets */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* General Styles */
-body {
-  font-family: 'Open Sans', sans-serif;
-  line-height: 1.5;
-
-  background: var(--black02);
-  color: var(--black100);
-}
-
-input::placeholder {
-  color: var(--black-40);
-}
-
-/* Mobile Styles */
+/* Header and Main */
 .container {
   width: 90%;
   margin: 0 auto;
@@ -43,25 +7,25 @@ input::placeholder {
 .header {
   height: 130px;
   background-color: #121212;
-  background: transparent url('../img/arte-capa-saas-01.png') left top no-repeat
-    padding-box;
+  background: transparent url('/src/img/arte-capa-saas-01.png') left top no-repeat padding-box;
   display: flex;
   align-items: center;
 }
 
-.logo {
+.header__logo {
   width: 57px;
   height: 40px;
 }
 
-/* Main */
 .main {
   position: relative;
   bottom: 20px;
 }
 
+/* Header and Main End*/
+
 /* Form Section */
-.register {
+.register-section {
   box-shadow: 0px 1px 2px #2e2d2c66;
   border-radius: 4px;
   background-color: #fff;
@@ -69,13 +33,13 @@ input::placeholder {
   margin-bottom: 1.25rem;
 }
 
-.register h2 {
+.register-section h2 {
   font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: 1.25rem;
 }
 
-.register p {
+.register-section p {
   margin-bottom: 1.25rem;
   font-size: 0.875rem;
 }
@@ -86,17 +50,17 @@ input::placeholder {
   font-weight: 600;
 }
 
-.input-wrapper label {
+.form__input-wrapper label {
   display: block;
   font-size: 0.875rem;
   margin-bottom: 0.375rem;
 }
 
-.required-symbol {
+.form__required-symbol {
   color: var(--red-01);
 }
 
-.input-wrapper input {
+.form__input-wrapper input {
   width: 100%;
   border: 1px solid #ababab;
   border-radius: 2px;
@@ -104,7 +68,7 @@ input::placeholder {
   margin-bottom: 0.25rem;
 }
 
-.input-wrapper input[type='submit'] {
+.form__input-wrapper input[type='submit'] {
   background-color: var(--blue-01);
   color: #fff;
   border: none;
@@ -116,7 +80,7 @@ input::placeholder {
   cursor: pointer;
 }
 
-.error {
+.form__error-message {
   display: block;
   min-height: 1.25rem;
   margin-bottom: 1.25rem;
@@ -148,16 +112,16 @@ input::placeholder {
   margin-bottom: 1.25rem;
 }
 
-.output ul {
+.record__output ul {
   list-style: none;
 }
 
-.output li {
+.record__output li {
   list-style: none;
   margin-bottom: 1.25rem;
 }
 
-.output p {
+.record__output p {
   color: var(--black-40);
   margin-bottom: 1.25rem;
 }
@@ -171,6 +135,7 @@ input::placeholder {
   font-size: 1rem;
   margin-bottom: 1.25rem;
 }
+
 /* Record Section End */
 
 /* Carousel */
@@ -205,6 +170,7 @@ input::placeholder {
 
   object-fit: cover;
 }
+
 /* Carousel End */
 
 /* Footer */
@@ -214,9 +180,10 @@ input::placeholder {
   font-weight: 700;
   font-size: 0.875rem;
   color: #fff;
-  background: transparent linear-gradient(153deg, #5a5789 0%, #2d2c45 100%) 0%
-    0% no-repeat padding-box;
+  background: transparent linear-gradient(153deg, #5a5789 0%, #2d2c45 100%) 0% 0% no-repeat padding-box;
 }
+
+/* Footer End*/
 
 /* Tablet Styles */
 @media screen and (min-width: 48rem) {
@@ -228,12 +195,12 @@ input::placeholder {
     height: 200px;
   }
 
-  .logo {
+  .header__logo {
     width: 85px;
     height: 60px;
   }
 
-  .register {
+  .register-section {
     margin: 0;
   }
 
@@ -242,11 +209,11 @@ input::placeholder {
     min-height: 586px;
   }
 
-  .main > * {
+  .main>* {
     flex: 1;
   }
 
-  .main > *:first-child {
+  .main>*:first-child {
     margin-right: 1.875rem;
   }
 
@@ -269,11 +236,11 @@ input::placeholder {
     display: flex;
   }
 
-  .phone-wrapper > * {
+  .phone-wrapper>* {
     flex: 1;
   }
 
-  .phone-wrapper > *:first-child {
+  .phone-wrapper>*:first-child {
     margin-right: 1.875rem;
   }
 
