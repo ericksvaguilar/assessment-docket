@@ -1,4 +1,4 @@
-# assessment-docket
+# Assessment Docket
 Challenge for front-end developer at Docket Brasil
 
 ## Live Preview
