@@ -2,6 +2,7 @@
 Challenge for front-end developer at Docket Brasil
 
 ## Live Preview
+https://ericksvaguilar.github.io/assessment-docket/
 
 ## Install
 1. Download repository
