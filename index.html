@@ -1,114 +1,160 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta name="description" content="Desafio Desenvolvedor Front-end Docket" />
+    <meta name="author" content="Erick Aguilar" />
+    <title>Docket Challenge</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
-  <meta name="description" content="Desafio Desenvolvedor Front-end Docket">
-  <meta name="author" content="Erick Aguilar">
-  <title>Docket Challenge</title>
+    <!-- Header Links -->
+    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/index.css" />
+    <script type="module" src="src/js/main.js" defer></script>
+  </head>
 
-  <!-- Header Links -->
-  <link rel="stylesheet" href="src/css/main.css">
-  <link rel="stylesheet" href="src/css/index.css">
-  <script type="module" src="src/js/main.js" defer></script>
-</head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <img class="logo" src="src/img/logo.svg" alt="Logo Docket" />
+      </div>
+    </header>
+    <!-- Header end -->
 
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <img class="header__logo" src="src/img/logo.svg" alt="Logo Docket">
-    </div>
-  </header>
+    <main class="main container">
+      <!-- Register Section Card-->
+      <section class="register-section">
+        <h2>Venha trabalhar na Docket</h2>
+        <p>
+          Preencha o formulário abaixo e venha trabalhar em uma das startups
+          mais desejadas do Brasil!
+        </p>
 
-  <main class="main container">
-    <!-- Register Section -->
-    <section class="register-section">
-      <h2>Venha trabalhar na Docket</h2>
-      <p>
-        Preencha o formulário abaixo e venha trabalhar em uma das startups
-        mais desejadas do Brasil!
-      </p>
+        <form data-js="form" class="form" novalidate>
+          <h3>Dados pessoais</h3>
 
-      <form class="form" data-js="form" novalidate>
-        <h3>Dados pessoais</h3>
-
-        <div class="form__input-wrapper">
-          <label for="name">
-            <span class="form__required-symbol">* </span>Nome completo:
-          </label>
-
-          <input type="text" id="name" pattern="[a-zA-Záãâéêíîóôõú\s]+$" required placeholder="Erick Silva Aguilar">
-
-          <small class="form__error-message" aria-live="polite"></small>
-        </div>
-
-        <div class="form__input-wrapper">
-          <label for="email">
-            <span class="form__required-symbol">* </span>E-mail:
-          </label>
-
-          <input type="email" id="email" required placeholder="erickaguilar@meuemail.com.br">
-
-          <small class="form__error-message" aria-live="polite"></small>
-        </div>
-
-        <div class="phone-wrapper">
-          <div class="form__input-wrapper">
-            <label for="phone">
-              <span class="form__required-symbol">* </span>Telefone 1:
+          <div>
+            <label for="name">
+              <span class="required-symbol">* </span>Nome completo:
             </label>
 
-            <input type="text" id="phone" required pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" maxlength="15"
-              placeholder="(88) 88888-8888">
+            <input
+              type="text"
+              id="name"
+              pattern="[a-zA-Záãâéêíîóôõú\s]+$"
+              required
+              placeholder="Erick Silva Aguilar"
+            />
 
-            <small class="form__error-message" aria-live="polite"></small>
+            <small
+              data-js="error-msg"
+              class="error-message"
+              aria-live="polite"
+            ></small>
           </div>
 
-          <div class="form__input-wrapper">
-            <label for="phone2">Telefone 2:</label>
+          <div>
+            <label for="email">
+              <span class="required-symbol">* </span>E-mail:
+            </label>
 
-            <input type="text" id="phone2" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" placeholder="(88) 8888-8888">
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="erickaguilar@meuemail.com.br"
+            />
 
-            <small class="form__error-message" aria-live="polite"></small>
+            <small
+              data-js="error-msg"
+              class="error-message"
+              aria-live="polite"
+            ></small>
+          </div>
+
+          <div class="phone-wrapper">
+            <div>
+              <label for="phone">
+                <span class="required-symbol">* </span>Telefone 1:
+              </label>
+
+              <input
+                type="text"
+                id="phone"
+                required
+                pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
+                maxlength="15"
+                placeholder="(88) 88888-8888"
+              />
+
+              <small
+                data-js="error-msg"
+                class="error-message"
+                aria-live="polite"
+              ></small>
+            </div>
+
+            <div>
+              <label for="phone2">Telefone 2:</label>
+
+              <input
+                type="text"
+                id="phone2"
+                pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
+                placeholder="(88) 8888-8888"
+              />
+
+              <small
+                data-js="error-msg"
+                class="error-message"
+                aria-live="polite"
+              ></small>
+            </div>
+          </div>
+
+          <div>
+            <input type="submit" value="Enviar" />
+          </div>
+        </form>
+      </section>
+      <!-- Register Section Card end -->
+
+      <!-- Record Section Card-->
+      <section class="record">
+        <div>
+          <h2>Ficha do Candidato</h2>
+
+          <div data-js="output" class="output">
+            <p>
+              Preencha o formulário e clique em "Enviar" após conferir
+              atentamente.
+            </p>
           </div>
         </div>
 
-        <div class="form__input-wrapper">
-          <input type="submit" value="Enviar">
-        </div>
-      </form>
-    </section>
+        <div>
+          <h3>Seus Projetos:</h3>
+          <!-- Carrousel -->
+          <div class="carousel">
+            <a data-js="previous-image" id="previous-image" href="#">
+              <img src="src/img/back.svg" style="width: 40px; height: 40px" />
+            </a>
 
-    <!-- Record Section -->
-    <section class="record">
-      <div>
-        <h2>Ficha do Candidato</h2>
+            <div data-js="carousel-items" class="items"></div>
 
-        <div class="record__output" data-js="output">
-          <p>
-            Preencha o formulário e clique em "Enviar" após conferir
-            atentamente.
-          </p>
-        </div>
-      </div>
-
-      <div>
-        <h3>Seus Projetos:</h3>
-        <!-- Carrousel -->
-        <div class="carousel">
-          <a id="previous-image" href="#"><img src="src/img/back.svg" style="width: 40px; height: 40px;"></a>
-          <div data-js="carousel-items" class="items">
-            <!-- Items will be generate with JS -->
+            <a data-js="next-image" id="next-image" href="#">
+              <img src="src/img/next.svg" style="width: 40px; height: 40px" />
+            </a>
           </div>
-          <a id="next-image" href="#"><img src="src/img/next.svg" style="width: 40px; height: 40px;"></a>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+      <!-- Record Section Card end -->
+    </main>
 
-  <footer class="footer">DOCKET © 2019</footer>
-</body>
-
+    <footer class="footer">DOCKET © 2019</footer>
+  </body>
 </html>
