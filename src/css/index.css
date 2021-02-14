@@ -142,12 +142,13 @@
 .carousel {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .items {
   display: flex;
 
-  overflow-x: auto;
+  overflow: hidden;
   width: 174px;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -169,6 +170,10 @@
   height: 100%;
 
   object-fit: cover;
+}
+
+#previous-image, #next-image {
+  display: block;
 }
 
 /* Carousel End */
