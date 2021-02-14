@@ -1,20 +1,45 @@
-import {isValidForm} from './utilities.js';
-import {getURLs} from './apis.js';
+import {isValidForm, getURLs, generateListItem} from './utilities.js';
 
-const formElement = document.querySelector('[data-js="form"]');
-const nextImage = document.querySelector('#next-image');
-const prevImage = document.querySelector('#previous-image');
+// HTML Elements
+const formEl = document.querySelector('[data-js="form"]');
+const nextImageEl = document.querySelector('[data-js="next-image"]');
+const prevImageEl = document.querySelector('[data-js="previous-image"]');
 
-// Object destructuring to extract the form and input values
-const handleSubmit = ({
-  target: form,
-  target: {
-    name: {value: name},
-    email: {value: email},
-    phone: {value: phone},
-    phone2: {value: phone2},
-  },
-}) => {
+// Global variables
+let handleImageCount = 2;
+
+// Event Listeners
+formEl.addEventListener('submit', event => {
+  event.preventDefault();
+  const {
+    target: form,
+    target: {
+      name: {value: name},
+      email: {value: email},
+      phone: {value: phone},
+      phone2: {value: phone2},
+    },
+  } = event;
+  handleSubmit(form, name, email, phone, phone2);
+});
+
+nextImageEl.addEventListener('click', event => {
+  const {
+    target: {parentElement: link},
+  } = event;
+  handleImage(link);
+});
+
+prevImageEl.addEventListener('click', event => {
+  const {
+    target: {parentElement: link},
+  } = event;
+  handleImage(link);
+});
+// Event Listeners end
+
+// Check form validity
+const handleSubmit = (form, name, email, phone, phone2) => {
   if (isValidForm(form)) {
     generateHTML(name, email, phone, phone2);
 
@@ -23,43 +48,50 @@ const handleSubmit = ({
   }
 };
 
+// Update href of carousel buttons dynamically
+const handleImage = link => {
+  if (link.id === 'next-image') {
+    link.setAttribute('href', `#${handleImageCount + 1}`);
+    handleImageCount++;
+  } else {
+    link.setAttribute('href', `#${handleImageCount - 1}`);
+    if (handleImageCount > 1) {
+      handleImageCount--;
+    }
+  }
+};
+
 const generateHTML = (name, email, phone, phone2) => {
   const output = document.querySelector('[data-js="output"]');
   const ul = document.createElement('ul');
 
-  // Formating values as html to hold results
-  name = `<strong>${name}</strong>`;
-  email = `<strong>${email}</strong>`;
-  phone = `<strong>${phone}</strong>`;
+  // Customize results
+  name = `Nome Completo: <br/><strong>${name}</strong>`;
+  email = `E-mail: <br><strong>${email}</strong>`;
+  phone = `Telefone 1: <br><strong>${phone}</strong>`;
   phone2 = phone2
-    ? `<strong>${phone2}</strong>`
-    : `<strong class='null'>Não Informado</strong>`;
+    ? `Telefone 2: <br><strong>${phone2}</strong>`
+    : `Telefone 2: <br><strong class='null'>Não Informado</strong>`;
 
-  ul.appendChild(generateListItem(`Nome Completo: <br/>${name}`));
-  ul.appendChild(generateListItem(`E-mail: <br>${email}`));
-  ul.appendChild(generateListItem(`Telefone 1: <br>${phone}`));
-  ul.appendChild(generateListItem(`Telefone 2: <br>${phone2}`));
+  ul.appendChild(generateListItem(name));
+  ul.appendChild(generateListItem(email));
+  ul.appendChild(generateListItem(phone));
+  ul.appendChild(generateListItem(phone2));
 
   output.innerHTML = ul.outerHTML;
 };
 
-const generateListItem = (listContent) => {
-  let listItem = document.createElement('li');
-  listItem.innerHTML = listContent;
-  return listItem;
-};
+// Handle API response
+getURLs().then(urls => insertUrlsIntoHTML(urls));
 
-// API handle data
-getURLs().then((urls) => insertUrlsIntoHTML(urls));
+const insertUrlsIntoHTML = urls => {
+  const carouselItems = document.querySelector('[data-js="carousel-items"]');
+  let id = 0;
 
-const insertUrlsIntoHTML = (urls) => {
-  const carouselItems = document.querySelector('[data-js="carousel-items"');
-  let counter = 0;
-
-  const items = urls.map((url) => {
-    counter++;
+  const items = urls.map(url => {
+    id++;
     return `
-        <div id='${counter}' class='item'>
+        <div id='${id}' class='item'>
           <img src='${url}' style="width: 200px">
         </div>
       `;
@@ -67,25 +99,4 @@ const insertUrlsIntoHTML = (urls) => {
 
   carouselItems.innerHTML = items.join('');
 };
-// API handle data end
-let counter = 2;
-const nextImageHandle = ({target: link}) => {
-  link.parentElement.setAttribute('href', `#${counter + 1}`);
-  counter++;
-};
-
-const prevImageHandle = ({target: link}) => {
-  link.parentElement.setAttribute('href', `#${counter - 1}`);
-  if (counter > 1) {
-    counter--;
-  }
-};
-
-// Event Listeners
-formElement.addEventListener('submit', (e) => {
-  e.preventDefault();
-  handleSubmit(e);
-});
-
-nextImage.addEventListener('click', (e) => nextImageHandle(e));
-prevImage.addEventListener('click', (e) => prevImageHandle(e));
+// Handle API response end
